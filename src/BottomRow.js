@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
-const BottomRow = () => {
+function BottomRow () {
+const [quarterNum, setQuarterNum] = useState(0);
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -18,10 +20,24 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{quarterNum}</div>
       </div>
+
+      <section className="buttons">
+        <div className="homeButtons">
+          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
+          <button onClick={() => setQuarterNum(quarterNum + 1)} setclassName="homeButtons__touchdown">Quarter</button>
+          <button onClick={() => setQuarterNum(0)} setclassName="homeButtons__touchdown"> Reset Quarter</button>
+          {/* <button onClick={() => setHomeScore(homeScore + 3)} className="homeButtons__fieldGoal">Home Field Goal</button> */}
+        </div>
+        {/* <div className="awayButtons">
+          <button onClick={() => setAwayScore(awayScore + 7)}className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={() => setAwayScore(awayScore + 3)}className="awayButtons__fieldGoal">Away Field Goal</button>
+        </div> */}
+      </section>
     </div>
   );
 };
+
 
 export default BottomRow;
